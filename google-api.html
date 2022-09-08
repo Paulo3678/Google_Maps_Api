@@ -13,11 +13,16 @@
 </head>
 
 <body>
+    
+<!--   AQUI É ONDE O MAPA APARECE   -->
     <div id="map" style="width: 500px; height: 500px"></div>
+    
     <script>
   
         var map;
+        // Atualiza o mapa a cada 4 segundos
         setInterval(e => {
+            // Latitudes e logitudes aleatórias apenas para teste
             lats = [
                 27.692612,
                 -34.397,
@@ -36,10 +41,15 @@
             numero = parseInt(Math.random() * 3);
             lat = lats[numero];
             lng = langs[numero];
+            
             console.log(`LATITUDE: ${lat} | LONGITUDE: ${lng}`);
+            
+            // Atualiza o mapa
             initMap(lat, lng)
         }, 4000)
-
+    // ------------------
+        
+        // Responsável por atualizar o mapa
         function initMap(lat, lng) {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: lat, lng: lng },
