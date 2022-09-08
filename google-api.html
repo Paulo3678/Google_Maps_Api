@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUpDoe6VnDGN00VnfAaGmqG5g6SB4nE3E&callback=initMap">
+        </script>
+</head>
+
+<body>
+    <div id="map" style="width: 500px; height: 500px"></div>
+    <script>
+        // const apiKey = "AIzaSyAyy6mTtKOhi0oFxyrAe0joSfaH42knrpY";
+        var map;
+        setInterval(e => {
+            lats = [
+                27.692612,
+                -34.397,
+                40.712776,
+                -9.128930,
+                -2.535710
+            ];
+            langs = [
+                85.342982,
+                150.644,
+                -74.005974,
+                -70.301460,
+                -44.269402
+
+            ];
+            numero = parseInt(Math.random() * 3);
+            lat = lats[numero];
+            lng = langs[numero];
+            console.log(`LATITUDE: ${lat} | LONGITUDE: ${lng}`);
+            initMap(lat, lng)
+        }, 4000)
+
+        function initMap(lat, lng) {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: lat, lng: lng },
+                zoom: 8
+            });
+        }
+
+
+    </script>
+
+</body>
+
+</html>
